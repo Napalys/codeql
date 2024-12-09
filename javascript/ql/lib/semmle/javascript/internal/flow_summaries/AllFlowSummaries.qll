@@ -12,5 +12,6 @@ private import Sets
 private import Strings
 private import DynamicImportStep
 private import UrlSearchParams
+private import ClassHarness
 private import TypedArrays
 private import Decoders
