@@ -20,7 +20,7 @@ class C extends Component {
 export function useDoc2() {
     let { root } = useMyContext();
     const reference = document.getElementById("reference");
-    root.insertBefore(window.name, ref); // NOT OK -- This should be OK because the function does not accept string arguments
+    root.insertBefore(window.name, ref); // OK -- the function does not accept string arguments
 }
 
 C.contextType = MyContext;
