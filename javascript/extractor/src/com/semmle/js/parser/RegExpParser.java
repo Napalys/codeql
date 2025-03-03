@@ -75,7 +75,7 @@ public class RegExpParser {
   private String flags;
 
   /** Parse the given string as a regular expression. */
-  public Result parse(String src) {
+  public Result tryParse(String src) {
     this.src = src;
     this.pos = 0;
     this.errors = new ArrayList<>();
@@ -86,6 +86,18 @@ public class RegExpParser {
       if (backref.getValue() > maxbackref)
         errors.add(new Error(backref.getLoc(), Error.INVALID_BACKREF));
     return new Result(root, errors);
+  }
+
+  public Result parse(String src) {
+    Result res = tryParse(src);
+    if(flags == null && !res.getErrors().isEmpty()) {
+      // Try parsing with the `v` flag enabled
+      flags = "v";
+      Result resultWithV = tryParse(src);
+      // If we got a better result with the `v` flag enabled, return that result
+      if(resultWithV.getErrors().isEmpty())return resultWithV;
+    }
+    return res;
   }
 
   public Result parse(String src, String flags) {

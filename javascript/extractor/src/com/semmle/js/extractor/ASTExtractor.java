@@ -580,6 +580,27 @@ public class ASTExtractor {
       return key;
     }
 
+    public boolean isRegExpCall(Node parent) {
+      if (parent != null && parent instanceof VariableDeclaration) {
+        for (VariableDeclarator declarator : ((VariableDeclaration) parent).getDeclarations()) {
+          if (declarator.getInit() instanceof InvokeExpression) {
+            InvokeExpression invoke = (InvokeExpression) declarator.getInit();
+            Expression callee = invoke.getCallee();
+            if (callee instanceof Identifier && "RegExp".equals(((Identifier)callee).getName())) {
+              return true;
+            } else if (callee instanceof MemberExpression) {
+              MemberExpression memberExpr = (MemberExpression)callee;
+              if (memberExpr.getProperty() instanceof Identifier && 
+                  "RegExp".equals(((Identifier)memberExpr.getProperty()).getName())) {
+                return true;
+              }
+            }
+          }
+        }
+      }
+      return false;
+    }
+
     @Override
     public Label visit(Literal nd, Context c) {
       Label key = super.visit(nd, c);
@@ -600,7 +621,12 @@ public class ASTExtractor {
         SourceMap sourceMap =
             SourceMap.legacyWithStartPos(
                 SourceMap.fromString(nd.getRaw()).offsetBy(0, offsets), startPos);
-        regexpExtractor.extract(source.substring(1, source.lastIndexOf('/')), sourceMap, nd, false, source.substring(source.lastIndexOf('/'), source.length()));
+
+        boolean isRegExprCall = isRegExpCall(contextManager.getCurrentStatement());
+        // If the regular expression was created using RegExp(), the flags might be unknown. 
+        // In this case, we will also attempt to parse it using the "v" (Unicode sets) flag.
+        String flagsStr = isRegExprCall ? null : source.substring(source.lastIndexOf('/') + 1);
+        regexpExtractor.extract(source.substring(1, source.lastIndexOf('/')), sourceMap, nd, false, flagsStr);
       } else if (nd.isStringLiteral()
           && !c.isInsideType()
           && nd.getRaw().length() < 1000
