@@ -11,7 +11,11 @@ private import javascript
 private class TanstackStep extends DataFlow::AdditionalFlowStep {
   override predicate step(DataFlow::Node node1, DataFlow::Node node2) {
     exists(API::CallNode useQuery |
-      useQuery = useQueryCall() and
+      (
+        useQuery = useQueryCall()
+        or
+        useQuery = useQueryCallVue()
+      ) and
       node1 = useQuery.getParameter(0).getMember("queryFn").getReturn().getPromised().asSink() and
       node2 = useQuery.getReturn().getMember("data").asSource()
     )
@@ -23,4 +27,8 @@ private class TanstackStep extends DataFlow::AdditionalFlowStep {
  */
 private API::CallNode useQueryCall() {
   result = API::moduleImport("@tanstack/react-query").getMember("useQuery").getACall()
+}
+
+private API::CallNode useQueryCallVue() {
+  result = API::moduleImport("@tanstack/vue-query").getMember("useQuery").getACall()
 }
