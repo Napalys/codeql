@@ -1,0 +1,12 @@
+extensions:
+  - addsTo:
+      pack: codeql/javascript-all
+      extensible: summaryModel
+    data:
+      - [
+          "@tanstack/vue-query",
+          "Member[useQuery]",
+          "Argument[0].Member[queryFn].ReturnValue",
+          "ReturnValue.Member[data]",
+          "taint",
+        ]

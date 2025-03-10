@@ -22,5 +22,6 @@ private class TanstackStep extends DataFlow::AdditionalFlowStep {
  * Retrieves a call node representing a useQuery invocation from the '@tanstack/react-query' module.
  */
 private API::CallNode useQueryCall() {
-  result = API::moduleImport("@tanstack/react-query").getMember("useQuery").getACall()
+  result = API::moduleImport("@tanstack/react-query").getMember("useQuery").getACall() or
+  result = API::moduleImport("@tanstack/vue-query").getMember("useQuery").getACall()
 }

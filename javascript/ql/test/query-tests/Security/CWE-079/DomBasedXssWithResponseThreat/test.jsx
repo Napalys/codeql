@@ -13,7 +13,9 @@ const getQueryOptions = () => {
 
 const ContentWithDangerousHtml = () => {
     const { data, error, isLoading } = useQuery(
-        getQueryOptions()
+        {
+            queryFn: fetchContent
+        }
     );
 
     if (isLoading) return <div>Loading...</div>;
