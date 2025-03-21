@@ -222,11 +222,11 @@ module ClientRequest {
       method = "request"
       or
       this = axios().getMember(method).getACall() and
-      method = [httpMethodName(), "request"]
+      method = [httpMethodName(), "request", "postForm"]
     }
 
     private int getOptionsArgIndex() {
-      method = "request" and
+      method = ["request", "postForm"] and
       result = 0
       or
       (method = "get" or method = "delete" or method = "head") and
@@ -253,6 +253,8 @@ module ClientRequest {
       or
       method = ["post", "put"] and
       result = [this.getArgument(1), this.getOptionArgument(2, "data")]
+      or
+      method = ["postForm"] and result = this.getArgument(1)
       or
       result = this.getOptionArgument([0 .. 2], ["headers", "params"])
     }
