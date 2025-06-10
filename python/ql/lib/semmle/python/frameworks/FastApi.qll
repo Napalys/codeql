@@ -118,11 +118,16 @@ module FastApi {
       // might be other special cases as well, but as a start this is not too far off
       // the mark.
       result = this.getARequestHandler().getArgByName(_) and
-      // type-annotated with `Response`
-      not any(Response::RequestHandlerParam src).asExpr() = result
+      not any(Response::RequestHandlerParam src).asExpr() = result and
+      // Special handling: exclude parameters with Depends() defaults from regular routing
+      not exists(Response::Depends::DependsCall dc | dc.asExpr() = result.getDefault())
       or
-      // **kwargs
       result = this.getARequestHandler().getKwarg()
+    }
+
+    /** Gets a parameter that uses dependency injection */
+    Response::Depends::DependsParameter getADependsParameter() {
+      result.getParameter() = this.getARequestHandler().getArgByName(_)
     }
 
     override DataFlow::Node getUrlPatternArg() {
@@ -249,6 +254,114 @@ module FastApi {
      * Use the predicate `Response::instance()` to get references to instances of `fastapi.Response`.
      */
     abstract class InstanceSource extends DataFlow::LocalSourceNode { }
+
+    // ...existing code...
+    /**
+     * Models the `Depends` function for dependency injection.
+     */
+    module Depends {
+      /** Gets a reference to the `Depends` function from fastapi */
+      API::Node dependsFunction() { result = API::moduleImport("fastapi").getMember("Depends") }
+
+      /** A call to `Depends` */
+      class DependsCall extends DataFlow::CallCfgNode {
+        DependsCall() { this = dependsFunction().getACall() }
+
+        // ...existing code...
+        /** Gets the dependency function being wrapped */
+        Function getDependencyFunction() {
+          // Track the function through data flow
+          exists(DataFlow::Node arg | arg = this.getArg(0) |
+            // Get the actual function that flows to this argument
+            exists(FunctionExpr funcExpr |
+              DataFlow::localFlow(DataFlow::exprNode(funcExpr), arg) and
+              result = funcExpr.getInnerScope()
+            )
+            or
+            // Handle references to functions by name
+            exists(Name name | name = arg.asExpr() |
+              result.getName() = name.getId() and
+              result.getScope() = name.getScope().getEnclosingModule()
+            )
+          )
+          or
+          // Lambda case
+          exists(Lambda l | l = this.getArg(0).asExpr() | result = l.getInnerScope())
+        }
+
+        /** Gets the return type annotation of the dependency function */
+        Expr getDependencyReturnType() {
+          exists(Function depFunc | depFunc = this.getDependencyFunction() |
+            result = depFunc.getDefinition().(FunctionExpr).getReturns()
+          )
+        }
+
+        /** Gets a potential return value from the dependency function */
+        DataFlow::Node getDependencyReturnValue() {
+          exists(Function depFunc | depFunc = this.getDependencyFunction() |
+            // Get any node that corresponds to a return value from the function
+            result.asCfgNode() = depFunc.getAReturnValueFlowNode()
+          )
+        }
+      }
+
+      // ...existing code...
+      /**
+       * A parameter with a `Depends` default value - this represents a dependency injection point
+       */
+      class DependsParameter extends DataFlow::ParameterNode {
+        DependsCall dependsCall;
+
+        DependsParameter() {
+          dependsCall.asExpr() = this.getParameter().getDefault() and
+          exists(Function func |
+            func.getAnArg() = this.getParameter() or
+            func.getAKeywordOnlyArg() = this.getParameter() or
+            func.getVararg() = this.getParameter() or
+            func.getKwarg() = this.getParameter()
+          |
+            any(FastApiRouteSetup rs).getARequestHandler() = func
+          )
+        }
+
+        /** Gets the function that provides the dependency */
+        Function getDependencyProvider() { result = dependsCall.getDependencyFunction() }
+
+        /** Gets the type annotation that this parameter will have at runtime */
+        Expr getInferredType() { result = dependsCall.getDependencyReturnType() }
+
+        /** Gets a potential value that flows to this parameter */
+        DataFlow::Node getAValue() { result = dependsCall.getDependencyReturnValue() }
+
+        DependsCall getDependsCall() { result = dependsCall }
+      }
+
+      /**
+       * Helper predicate for tracking types through dependency injection.
+       * Links the return value of a dependency function to the parameter that receives it.
+       */
+      private predicate dependsTypeFlow(DataFlow::Node fromNode, DataFlow::Node toNode) {
+        exists(DependsParameter dp |
+          fromNode = dp.getAValue() and
+          toNode = dp
+        )
+      }
+
+      private class DependsInjectionCall extends DataFlow::CallCfgNode {
+        DependsParameter targetParam;
+
+        DependsInjectionCall() {
+          // Create a synthetic call node for each Depends parameter
+          exists(DependsCall dc |
+            dc = targetParam.getDependsCall() and
+            this = dc // The Depends(...) call itself represents the injection
+          )
+        }
+
+        /** Gets the parameter that receives the injected value */
+        DependsParameter getTargetParameter() { result = targetParam }
+      }
+    }
 
     /** A direct instantiation of a response class. */
     private class ResponseInstantiation extends InstanceSource, Http::Server::HttpResponse::Range,
