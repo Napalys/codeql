@@ -5,6 +5,9 @@
  * @tags quality
  *       reliability
  *       correctness
+ *       local-scope
+ *       simple-analysis
+ *       best-practice
  * @problem.severity recommendation
  * @sub-severity high
  * @precision high

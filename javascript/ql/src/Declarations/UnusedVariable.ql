@@ -8,6 +8,9 @@
  * @tags quality
  *       maintainability
  *       useless-code
+ *       file-scope
+ *       simple-analysis
+ *       dead-code
  * @precision very-high
  */
 

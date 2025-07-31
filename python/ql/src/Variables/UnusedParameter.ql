@@ -3,6 +3,9 @@
  * @description Parameter is defined but not used
  * @kind problem
  * @tags maintainability
+ *       local-scope
+ *       syntactic-analysis
+ *       dead-code
  * @problem.severity recommendation
  * @sub-severity high
  * @precision medium

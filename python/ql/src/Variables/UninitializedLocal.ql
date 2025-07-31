@@ -4,6 +4,9 @@
  * @kind problem
  * @tags reliability
  *       correctness
+ *       local-scope
+ *       simple-analysis
+ *       strict-correctness
  * @problem.severity error
  * @sub-severity low
  * @precision medium

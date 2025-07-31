@@ -5,6 +5,9 @@
  * @tags reliability
  *       correctness
  *       types
+ *       global-scope
+ *       complex-analysis
+ *       strict-correctness
  * @problem.severity error
  * @sub-severity low
  * @precision high

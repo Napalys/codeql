@@ -6,6 +6,9 @@
  * @problem.severity recommendation
  * @id js/implicit-return
  * @tags maintainability
+ *       local-scope
+ *       complex-analysis
+ *       strict-correctness
  * @precision medium
  */
 

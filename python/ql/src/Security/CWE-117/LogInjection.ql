@@ -9,6 +9,9 @@
  * @id py/log-injection
  * @tags security
  *       external/cwe/cwe-117
+ *       global-scope
+ *       complex-analysis
+ *       strict-security
  */
 
 import python

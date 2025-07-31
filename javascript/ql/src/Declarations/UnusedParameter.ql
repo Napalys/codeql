@@ -5,6 +5,9 @@
  * @problem.severity recommendation
  * @id js/unused-parameter
  * @tags maintainability
+ *       local-scope
+ *       simple-analysis
+ *       dead-code
  * @precision medium
  */
 

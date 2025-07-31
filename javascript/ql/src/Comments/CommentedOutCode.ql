@@ -7,6 +7,9 @@
  * @tags maintainability
  *       statistical
  *       non-attributable
+ *       local-scope
+ *       syntactic-analysis
+ *       dead-code
  * @precision medium
  */
 

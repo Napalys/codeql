@@ -5,6 +5,9 @@
  * @tags quality
  *       maintainability
  *       useless-code
+ *       file-scope
+ *       simple-analysis
+ *       dead-code
  * @problem.severity recommendation
  * @sub-severity high
  * @precision very-high
