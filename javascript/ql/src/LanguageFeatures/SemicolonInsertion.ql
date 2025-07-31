@@ -10,6 +10,9 @@
  *       language-features
  *       statistical
  *       non-attributable
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @precision very-high
  */
 

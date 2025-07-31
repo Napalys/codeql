@@ -8,6 +8,11 @@
  * @id js/file-access-to-http
  * @tags security
  *       external/cwe/cwe-200
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

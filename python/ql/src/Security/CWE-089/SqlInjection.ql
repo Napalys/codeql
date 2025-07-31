@@ -9,6 +9,9 @@
  * @id py/sql-injection
  * @tags security
  *       external/cwe/cwe-089
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python

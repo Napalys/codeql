@@ -9,6 +9,9 @@
  *       maintainability
  *       useless-code
  *       external/cwe/cwe-563
+ *       local-scope
+ *       simple-analysis
+ *       dead-code
  * @precision very-high
  */
 

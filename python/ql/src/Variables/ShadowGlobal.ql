@@ -6,6 +6,9 @@
  * @kind problem
  * @tags maintainability
  *       readability
+ *       file-scope
+ *       simple-analysis
+ *       best-practice
  * @problem.severity recommendation
  * @sub-severity low
  * @precision medium

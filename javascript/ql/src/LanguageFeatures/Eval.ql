@@ -6,8 +6,10 @@
  * @problem.severity recommendation
  * @id js/eval-call
  * @tags maintainability
- *       language-features
  *       external/cwe/cwe-676
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @precision medium
  */
 

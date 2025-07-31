@@ -8,6 +8,9 @@
  *       reliability
  *       correctness
  *       external/cwe/cwe-561
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @precision very-high
  */
 

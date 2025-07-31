@@ -6,6 +6,9 @@
  *       reliability
  *       error-handling
  *       external/cwe/cwe-390
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @problem.severity recommendation
  * @sub-severity high
  * @precision high

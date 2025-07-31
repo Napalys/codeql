@@ -10,6 +10,11 @@
  *       external/cwe/cwe-346
  *       external/cwe/cwe-639
  *       external/cwe/cwe-942
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

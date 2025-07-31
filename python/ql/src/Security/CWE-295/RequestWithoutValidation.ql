@@ -8,6 +8,9 @@
  * @id py/request-without-cert-validation
  * @tags security
  *       external/cwe/cwe-295
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  */
 
 import python

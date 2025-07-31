@@ -7,6 +7,9 @@
  *       correctness
  *       performance
  *       external/cwe/cwe-772
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  * @problem.severity warning
  * @sub-severity high
  * @precision high

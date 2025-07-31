@@ -11,6 +11,9 @@
  *       external/cwe/cwe-1333
  *       external/cwe/cwe-730
  *       external/cwe/cwe-400
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import javascript

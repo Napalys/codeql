@@ -4,6 +4,9 @@
  * @kind problem
  * @tags reliability
  *       correctness
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @problem.severity warning
  * @sub-severity high
  * @precision very-high

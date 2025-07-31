@@ -11,6 +11,9 @@
  *       external/cwe/cwe-312
  *       external/cwe/cwe-315
  *       external/cwe/cwe-359
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python

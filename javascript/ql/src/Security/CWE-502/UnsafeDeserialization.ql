@@ -9,6 +9,11 @@
  * @id js/unsafe-deserialization
  * @tags security
  *       external/cwe/cwe-502
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

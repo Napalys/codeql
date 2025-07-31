@@ -10,6 +10,9 @@
  *       external/cwe/cwe-327
  *       external/cwe/cwe-328
  *       external/cwe/cwe-916
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  */
 
 import python

@@ -10,6 +10,11 @@
  *       external/cwe/cwe-079
  *       external/cwe/cwe-116
  *       frameworks/jquery
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

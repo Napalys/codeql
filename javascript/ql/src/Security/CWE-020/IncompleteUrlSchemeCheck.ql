@@ -11,6 +11,9 @@
  *       correctness
  *       external/cwe/cwe-020
  *       external/cwe/cwe-184
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  */
 
 import javascript

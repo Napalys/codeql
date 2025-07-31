@@ -8,6 +8,11 @@
  * @id py/full-ssrf
  * @tags security
  *       external/cwe/cwe-918
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import python

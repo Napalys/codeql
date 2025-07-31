@@ -6,6 +6,9 @@
  *       maintainability
  *       useless-code
  *       external/cwe/cwe-563
+ *       local-scope
+ *       simple-analysis
+ *       not-type-sensitive
  * @problem.severity warning
  * @sub-severity low
  * @precision very-high

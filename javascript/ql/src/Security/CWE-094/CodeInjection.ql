@@ -12,6 +12,9 @@
  *       external/cwe/cwe-095
  *       external/cwe/cwe-079
  *       external/cwe/cwe-116
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import javascript

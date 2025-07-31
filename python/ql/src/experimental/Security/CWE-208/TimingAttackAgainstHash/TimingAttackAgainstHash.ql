@@ -10,6 +10,10 @@
  * @id py/timing-attack-against-hash
  * @tags security
  *       external/cwe/cwe-208
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python

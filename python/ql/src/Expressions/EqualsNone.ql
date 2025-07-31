@@ -6,6 +6,9 @@
  *       reliability
  *       correctness
  *       performance
+ *       local-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @problem.severity recommendation
  * @sub-severity high
  * @precision very-high

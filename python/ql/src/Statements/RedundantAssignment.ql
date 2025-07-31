@@ -6,6 +6,9 @@
  *       reliability
  *       correctness
  *       external/cwe/cwe-563
+ *       local-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @problem.severity error
  * @sub-severity low
  * @precision very-high

@@ -9,6 +9,11 @@
  * @tags correctness
  *       security
  *       external/cwe/cwe-020
+ *       security
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
+ *       best-practice
  */
 
 private import semmle.python.security.regexp.HostnameRegex as HostnameRegex

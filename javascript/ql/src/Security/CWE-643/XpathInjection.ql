@@ -9,6 +9,11 @@
  * @id js/xpath-injection
  * @tags security
  *       external/cwe/cwe-643
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

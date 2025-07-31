@@ -9,6 +9,11 @@
  * @tags security
  *       external/cwe/cwe-215
  *       external/cwe/cwe-489
+ *       security
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
+ *       best-practice
  */
 
 import python

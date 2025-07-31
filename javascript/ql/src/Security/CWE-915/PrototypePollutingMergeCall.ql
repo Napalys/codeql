@@ -15,6 +15,11 @@
  *       external/cwe/cwe-400
  *       external/cwe/cwe-471
  *       external/cwe/cwe-915
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

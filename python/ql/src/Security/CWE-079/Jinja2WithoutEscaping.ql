@@ -9,6 +9,11 @@
  * @id py/jinja2/autoescape-false
  * @tags security
  *       external/cwe/cwe-079
+ *       security
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
+ *       best-practice
  */
 
 import python

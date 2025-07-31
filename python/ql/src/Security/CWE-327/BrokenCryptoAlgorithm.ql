@@ -8,6 +8,9 @@
  * @id py/weak-cryptographic-algorithm
  * @tags security
  *       external/cwe/cwe-327
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  */
 
 import python

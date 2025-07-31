@@ -9,6 +9,11 @@
  * @id js/log-injection
  * @tags security
  *       external/cwe/cwe-117
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

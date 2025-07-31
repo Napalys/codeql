@@ -12,6 +12,9 @@
  *       security
  *       external/cwe/cwe-078
  *       external/cwe/cwe-088
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python

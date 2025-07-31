@@ -9,6 +9,9 @@
  * @id py/url-redirection
  * @tags security
  *       external/cwe/cwe-601
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  * @precision high
  */
 

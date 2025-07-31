@@ -9,6 +9,11 @@
  * @tags security
  *       external/cwe/cwe-912
  *       external/cwe/cwe-434
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

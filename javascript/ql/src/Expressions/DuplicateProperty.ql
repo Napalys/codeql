@@ -9,6 +9,9 @@
  *       maintainability
  *       readability
  *       external/cwe/cwe-563
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @precision very-high
  */
 

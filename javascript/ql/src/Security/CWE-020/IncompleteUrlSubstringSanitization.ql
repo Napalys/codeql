@@ -9,6 +9,9 @@
  * @tags correctness
  *       security
  *       external/cwe/cwe-020
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  */
 
 import IncompleteUrlSubstringSanitization

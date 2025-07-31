@@ -10,6 +10,9 @@
  * @tags correctness
  *       security
  *       external/cwe/cwe-020
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  */
 
 private import semmle.javascript.security.regexp.RegExpTreeView::RegExpTreeView as TreeView

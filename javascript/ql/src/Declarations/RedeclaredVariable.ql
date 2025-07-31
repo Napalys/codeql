@@ -6,6 +6,9 @@
  * @id js/variable-redeclaration
  * @tags reliability
  *       readability
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @precision medium
  */
 

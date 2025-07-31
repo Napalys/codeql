@@ -10,6 +10,9 @@
  * @tags external/cwe/cwe-502
  *       security
  *       serialization
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python

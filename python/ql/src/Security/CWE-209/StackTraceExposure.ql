@@ -11,6 +11,11 @@
  * @tags security
  *       external/cwe/cwe-209
  *       external/cwe/cwe-497
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import python

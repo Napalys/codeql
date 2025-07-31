@@ -9,6 +9,11 @@
  * @id py/ldap-injection
  * @tags security
  *       external/cwe/cwe-090
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 // Determine precision above

@@ -9,6 +9,9 @@
  * @id py/xpath-injection
  * @tags security
  *       external/cwe/cwe-643
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python

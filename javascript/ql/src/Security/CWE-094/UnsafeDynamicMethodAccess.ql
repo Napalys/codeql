@@ -8,6 +8,11 @@
  * @id js/unsafe-dynamic-method-access
  * @tags security
  *       external/cwe/cwe-094
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
+ *       strict-correctness
  */
 
 import javascript

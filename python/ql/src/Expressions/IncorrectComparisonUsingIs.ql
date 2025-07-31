@@ -5,6 +5,9 @@
  * @tags quality
  *       reliability
  *       correctness
+ *       local-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @problem.severity warning
  * @sub-severity low
  * @precision high

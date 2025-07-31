@@ -11,6 +11,9 @@
  *       portability
  *       language-features
  *       external/cwe/cwe-758
+ *       file-scope
+ *       syntactic-analysis
+ *       not-type-sensitive
  * @precision very-high
  */
 

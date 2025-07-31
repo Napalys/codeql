@@ -9,6 +9,10 @@
  * @id py/nosql-injection
  * @tags security
  *       external/cwe/cwe-943
+ *       security
+ *       global-scope
+ *       complex-analysis
+ *       not-type-sensitive
  */
 
 import python
